@@ -18,9 +18,9 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful starter',
+    title: 'Outlandnish | Nishanth Samala',
   },
-  pathPrefix: '/gatsby-contentful-starter',
+  pathPrefix: '/',
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
@@ -29,6 +29,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
-    }
+    },
+    `gatsby-plugin-sass`
   ],
 }
