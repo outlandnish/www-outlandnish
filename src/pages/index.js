@@ -18,12 +18,12 @@ export default ({ data, location }) => {
         <div className="columns">
           <div className="column col-12">
             <div className="columns">
-              <div className="column col-1">
+              <div className="column col-2 col-sm-6 col-mx-auto">
                 <Img fluid={me} fadeIn={true} alt="Nishanth" className="s-circle" />
               </div>
-              <div className="column">
-                <h1 className="summary-title">👋🏽 Hey, it's Nishanth.</h1>
-                <h3>I'm an entrepreneur, maker, and mobility nerd fascinated by the way people move around.</h3>
+              <div className="column col-mx-auto">
+                <h2 className="summary-title">👋🏽 Hey, it's Nishanth.</h2>
+                <h4>I'm an entrepreneur, maker, and mobility nerd fascinated by the way people move around.</h4>
                 <h4>Currently, I'm building <a href="https://ridewithamp.com" target="_blank"> the Amp</a> @ <a href="https://intentfulmotion.com" target="_blank">Intentful Motion.</a></h4>
               </div>
             </div>
@@ -88,7 +88,6 @@ export const pageQuery = graphql`
           maxWidth: 480
           maxHeight: 480
           resizingBehavior: PAD
-          background: "rgb:ffffff"
         ) {
           ...GatsbyContentfulFluid_tracedSVG
         }
