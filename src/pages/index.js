@@ -18,7 +18,7 @@ export default ({ data, location }) => {
         <div className="columns">
           <div className="column col-12">
             <div className="columns">
-              <div className="column col-2 col-sm-6 col-mx-auto">
+              <div className="column col-1 col-sm-6 col-mx-auto">
                 <Img fluid={me} fadeIn={true} alt="Nishanth" className="s-circle" />
               </div>
               <div className="column col-mx-auto">
