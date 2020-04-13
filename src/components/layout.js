@@ -18,6 +18,10 @@ class Template extends React.Component {
       <Container>
         <Navigation />
         {children}
+        <div className="divider"></div>
+        <div className="footer text-gray">
+          Outlandnish &copy; 2020
+        </div>
       </Container>
     )
   }
