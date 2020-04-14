@@ -27,7 +27,7 @@ class Template extends React.Component {
           <a href="https://github.com/outlandnish"  target="_blank" className="btn btn-link social-link"><FaGithub /></a>
           <a href="https://open.spotify.com/user/nishanthsamala?si=hdglQJ9LQlKRSQkxANMrhg"  target="_blank" className="btn btn-link social-link"><FaSpotify /></a>
           <a href="mailto://hey@outlandnish.com"  target="_blank" className="btn btn-link social-link"><MdEmail /></a>
-          <section className="section">Outlandnish &copy; 2020</section>
+          <section className="text-primary">Outlandnish &copy; 2020</section>
         </div>
       </Container>
     )
