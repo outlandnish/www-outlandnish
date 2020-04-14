@@ -26,7 +26,7 @@ class BlogPostTemplate extends React.Component {
           </div>
           <div className="wrapper">
             <div className="columns">
-              <div className="column col-8 col-mx-auto">
+              <div className="column col-8 col-sm-12 col-mx-auto">
                 <h1 className={blogPostStyles.postHeader}>{post.title}</h1>
                 <small className="text-gray">{post.publishDate} • {timeToRead(post)}</small>
                 <div className={`divider ${blogPostStyles.postStart}`}></div>
