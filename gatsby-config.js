@@ -18,7 +18,7 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Outlandnish | Nishanth Samala',
+    title: 'Outlandnish',
   },
   pathPrefix: '/',
   plugins: [
