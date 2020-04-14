@@ -39,7 +39,7 @@ export default ({ data, location }) => {
           <li>Traveling, though I've been pretty bad at documenting it</li>
           <li>Wandering to intimate concert venues and <a href="https://open.spotify.com/user/nishanthsamala?si=hdglQJ9LQlKRSQkxANMrhg" target="_blank">discovering music</a></li>
         </ul>
-        <p>Wanna chat or collaborate? Reach out and <a href="mailto://hey@outlandnish.com">say hey.</a></p>
+        <p>Wanna chat or collaborate? Reach out and <a href="mailto:hey@outlandnish.com">say hey.</a></p>
       </section>
       <div className="divider"></div>
       <h2>Recent posts</h2>
