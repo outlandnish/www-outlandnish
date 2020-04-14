@@ -4,9 +4,9 @@ import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
-
 import heroStyles from '../components/hero.module.css'
 import blogPostStyles from './blog-post.module.css'
+import timeToRead from '../utils/time-to-read'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -27,14 +27,9 @@ class BlogPostTemplate extends React.Component {
           <div className="wrapper">
             <div className="columns">
               <div className="column col-8 col-mx-auto">
-                <h1 className="section-headline">{post.title}</h1>
-                <p
-                  style={{
-                    display: 'block',
-                  }}
-                >
-                  {post.publishDate}
-                </p>
+                <h1 className={blogPostStyles.postHeader}>{post.title}</h1>
+                <small className="text-gray">{post.publishDate} • {timeToRead(post)}</small>
+                <div className={`divider ${blogPostStyles.postStart}`}></div>
                 <div id={blogPostStyles.postContent}
                   dangerouslySetInnerHTML={{
                     __html: post.body.childMarkdownRemark.html,
