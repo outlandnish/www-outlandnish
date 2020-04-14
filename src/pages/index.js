@@ -24,13 +24,12 @@ export default ({ data, location }) => {
               <div className="column col-mx-auto">
                 <h2 className={styles.headerTitle}>👋🏽 Hey, it's Nishanth.</h2>
                 <h4>I'm an entrepreneur, maker, and mobility nerd fascinated by the way people move around.</h4>
-                <h4>Currently, I'm building <a href="https://ridewithamp.com" target="_blank"> the Amp</a> @ <a href="https://intentfulmotion.com" target="_blank">Intentful Motion.</a></h4>
               </div>
             </div>
           </div>
         </div>
       <section className={styles.summary}>
-        <h5>Here's some other things you'll find me:</h5>
+        <h5>Currently I'm working on<a href="https://ridewithamp.com" target="_blank"> the Amp</a> @ <a href="https://intentfulmotion.com" target="_blank">Intentful Motion</a>. Otherwise, you'll find me:</h5>
         <ul className="summary-list">
           <li>Bringing <Link to="/hacks">fun project ideas</Link> to life and contributing to <a href="https://github.com/outlandnish">open source</a></li>
           <li><a href="https://racing.outlandnish.com" target="_blank">Time attack competition and drift exhibitions</a></li>
