@@ -69,3 +69,5 @@ public
 !.env.example
 
 contentful
+# Local Netlify folder
+.netlify
