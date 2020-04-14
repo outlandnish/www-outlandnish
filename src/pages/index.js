@@ -42,7 +42,8 @@ export default ({ data, location }) => {
         </ul>
         <p>Wanna chat or collaborate? Reach out and <a href="mailto://hey@outlandnish.com">say hey.</a></p>
       </section>
-      <h2 className="section-headline">Recent posts</h2>
+      <div className="divider"></div>
+      <h2>Recent posts</h2>
       <ul className="article-list">
         {posts.map(({ node }) => {
           return (
