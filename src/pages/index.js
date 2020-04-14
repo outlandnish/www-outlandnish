@@ -35,7 +35,7 @@ export default ({ data, location }) => {
           <li><a href="https://racing.outlandnish.com" target="_blank">Time attack competition and drift exhibitions</a></li>
           <li>Co-hosting the <a href="http://brakefastclub.com" target="_blank">Brakefast Club</a> podcast</li>
           <li>Doing any form of <a href="https://instagram.com/outlandnish" target="_blank">outdoor adventure</a></li>
-          <li>E-skating, <a href="https://www.meetup.com/windycityboarders/" target="_blank">snowboarding</a>, and trail riding</li>
+          <li>E-skating, <a href="https://www.meetup.com/windycityboarders/" target="_blank">snowboarding</a>, and mountain biking</li>
           <li>Traveling, though I've been pretty bad at documenting it</li>
           <li>Wandering to intimate concert venues and <a href="https://open.spotify.com/user/nishanthsamala?si=hdglQJ9LQlKRSQkxANMrhg" target="_blank">discovering music</a></li>
         </ul>
