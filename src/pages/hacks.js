@@ -23,7 +23,7 @@ export default ({ data, location }) => {
       <div style={{ background: '#fff' }}>
         <Helmet title={siteTitle} />
         <div className="wrapper">
-          <h2>Previous posts</h2>
+          <h2>Hacks</h2>
           <div className="timeline">
             {
               Object.keys(groupedPosts).map(group => (
@@ -48,13 +48,13 @@ export default ({ data, location }) => {
 }
 
 export const pageQuery = graphql`
-  query BlogPostsQuery {
+  query HacksQuery {
     site {
       siteMetadata {
         title
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, filter: {tags: {nin: "hack"}}) {
+    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, filter: {tags: {in: "hack"}}) {
       edges {
         node {
           title

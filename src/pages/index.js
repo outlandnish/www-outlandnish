@@ -80,6 +80,11 @@ export const pageQuery = graphql`
               html
             }
           }
+          body {
+            childMarkdownRemark {
+              html
+            }
+          }
         }
       }
     }
