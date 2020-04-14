@@ -1,3 +1,9 @@
+@media only screen and (max-width: 600px) {
+  .header-title {
+    margin-top: 0.8rem;
+  }
+}
+
 .summary {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }

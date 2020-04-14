@@ -22,7 +22,7 @@ export default ({ data, location }) => {
                 <Img fluid={me} fadeIn={true} alt="Nishanth" className="s-circle" />
               </div>
               <div className="column col-mx-auto">
-                <h2 className="summary-title">👋🏽 Hey, it's Nishanth.</h2>
+                <h2 className={styles.headerTitle}>👋🏽 Hey, it's Nishanth.</h2>
                 <h4>I'm an entrepreneur, maker, and mobility nerd fascinated by the way people move around.</h4>
                 <h4>Currently, I'm building <a href="https://ridewithamp.com" target="_blank"> the Amp</a> @ <a href="https://intentfulmotion.com" target="_blank">Intentful Motion.</a></h4>
               </div>
@@ -32,11 +32,12 @@ export default ({ data, location }) => {
       <section className={styles.summary}>
         <h5>Here's some other things you'll find me doing:</h5>
         <ul className="summary-list">
-          <li>I enjoy bringing <Link to="/hacks">fun project ideas</Link> to life and am a strong proponent of + contributor to <a href="https://github.com/outlandnish">open source</a></li>
-          <li>I'm an amateur <a href="https://racing.outlandnish.com" target="_blank">time attack competitor and exhibition drifter</a>.</li>
-          <li>I co-host <a href="https://brakefastclub.com" target="_blank">The Brakefast Club</a> podcast</li>
-          <li>I'm an <a href="https://instagram.com/outlandnish" target="_blank">outdoors enthusiast, bicyclist, e-skater and snowboarder</a></li>
-          <li>Music and intimate concert venues <a href="https://open.spotify.com/user/nishanthsamala?si=hdglQJ9LQlKRSQkxANMrhg" target="_blank">are my jam</a></li>
+          <li>Bringing <Link to="/hacks">fun project ideas</Link> to life and contributing to <a href="https://github.com/outlandnish">open source</a></li>
+          <li><a href="https://racing.outlandnish.com" target="_blank">Time attack competition and drift exhibitions</a></li>
+          <li>Co-hosting the <a href="https://brakefastclub.com" target="_blank">Brakefast Club</a> podcast</li>
+          <li>Any form of <a href="https://instagram.com/outlandnish" target="_blank">outdoor adventure</a></li>
+          <li>E-skating, <a href="https://www.meetup.com/windycityboarders/">snowboarding</a>, and trail riding</li>
+          <li>Wandering to intimate concert venues and <a href="https://open.spotify.com/user/nishanthsamala?si=hdglQJ9LQlKRSQkxANMrhg" target="_blank">discovering music</a></li>
         </ul>
         <p>Wanna chat or collaborate? Reach out and <a href="mailto://hey@outlandnish.com">say hey.</a></p>
       </section>
