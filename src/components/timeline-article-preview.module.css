@@ -1,0 +1,14 @@
+.separator {
+  display: inline;
+}
+
+@media only screen and (max-width: 600px) {
+  .timeline-preview-title {
+    margin-top: 0.8rem;
+    padding-right: 0.5rem;
+  }
+
+  .separator {
+    display: none;
+  }
+}
