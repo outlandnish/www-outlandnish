@@ -17,7 +17,7 @@ const SEO = ({ title, description, image, article, section, slug, publishDate, m
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: image || `${siteUrl}"/outlandnish.png"`,
+    image: image || `${siteUrl}/outlandnish.png`,
     url: `${siteUrl}${pathname}`,
     profile: { first_name: 'Nishanth', last_name: 'Samala', username: 'outlandnish', gender: 'male' },
     article: article,
