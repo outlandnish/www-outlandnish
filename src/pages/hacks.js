@@ -21,7 +21,7 @@ export default ({ data, location }) => {
   return (
     <Layout location={location}>
       <div style={{ background: '#fff' }}>
-        <SEO title={`Hacks | ${siteTitle}`} />
+        <SEO title="Hacks" />
         <div className="wrapper">
           <h2>Hacks</h2>
           <div className="timeline">

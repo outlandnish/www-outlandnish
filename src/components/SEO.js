@@ -20,7 +20,7 @@ const SEO = ({ title, description, image, article, publishDate, modifiedDate, ta
   } = site.siteMetadata
 
   const seo = {
-    title: title || defaultTitle,
+    title: `${title} | ${defaultTitle}` || defaultTitle,
     description: description || defaultDescription,
     image: image || `${siteUrl}/outlandnish.png`,
     url: `${siteUrl}${pathname}`,
