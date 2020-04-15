@@ -6,7 +6,7 @@ import styles from './navigation.module.css'
 export default () => (
   <header className={`${styles.nav} navbar`}>
     <section className="navbar-section">
-      <Link to="/"><img className={`${styles.logoImage} navbar-brand`} src={Logo} /></Link>
+      <Link to="/"><img className={`${styles.logoImage} navbar-brand`} src={Logo} alt="OTLNDNSH" /></Link>
     </section>
     <section className="navbar-section">
       <Link to="/blog" className="btn btn-link">Blog</Link>

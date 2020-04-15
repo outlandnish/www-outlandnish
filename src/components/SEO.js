@@ -74,6 +74,7 @@ const SEO = ({ title, description, image, article, publishDate, modifiedDate, ta
       <meta name="viewport"	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"	/>
       <meta name="description" content={seo.description} />
       <meta name="keywords" content={tags.join(',')} />
+      <link rel="canonical" href={`${siteUrl}${pathname}`} />
 
       {/* Schema.org */}
       <meta itemprop="name" content={author} />
