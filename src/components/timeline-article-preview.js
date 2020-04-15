@@ -10,9 +10,9 @@ export default ({ post }) => (
       <div className="column col-2 col-sm-6">
       <Link to={`/blog/${post.slug}`}><Img fluid={post.heroImage.fluid} fadeIn={true} /></Link>
       </div>
-      <div className="column col-6">
+      <div className="column col-6 col-sm-12">
         <h5 className={`tile-title ${styles.timelinePreviewTitle}`}><Link to={`/blog/${post.slug}`}>{post.title}</Link></h5>
-        <p className="small text-gray">{post.published} <span className={styles.separator}>• </span>{ timeToRead(post) }</p>
+        <small className="small text-gray">{post.published} <span class="separator">• { timeToRead(post) }</span></small>
       </div>
     </div>
   </div>
