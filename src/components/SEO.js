@@ -42,12 +42,13 @@ const SEO = ({ title, description, image, article, section, slug, publishDate, m
         name: "Nishanth Samala"
       },
       publisher: {
-        "@type": "Organization",
+        "@type": "Brand",
         name: "Outlandnish",
         logo: {
           "@type": "ImageObject",
           url: seo.image
         },
+        slogan: "Run before you can walk"
       },
       description: seo.description
     }
