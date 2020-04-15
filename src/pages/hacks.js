@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
+import SEO from '../components/SEO'
 import Layout from '../components/layout'
 import _ from 'lodash'
 import { FaCalendarAlt } from 'react-icons/fa'
@@ -21,7 +21,7 @@ export default ({ data, location }) => {
   return (
     <Layout location={location}>
       <div style={{ background: '#fff' }}>
-        <Helmet title={siteTitle} />
+        <SEO title={`Hacks | ${siteTitle}`} />
         <div className="wrapper">
           <h2>Hacks</h2>
           <div className="timeline">
@@ -60,6 +60,7 @@ export const pageQuery = graphql`
           title
           slug
           publishDate
+          published: publishDate(formatString: "MMMM Do, YYYY")
           heroImage {
             fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
               ...GatsbyContentfulFluid_tracedSVG

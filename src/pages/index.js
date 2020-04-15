@@ -2,19 +2,18 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
+import SEO from '../components/SEO'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 import styles from './index.module.css'
 
 export default ({ data, location }) => {
-  const siteTitle = get(data, `site.siteMetadata.title`)
   const posts = get(data, 'allContentfulBlogPost.edges')
   const me = get(data, `contentfulPerson.image.fluid`)
 
   return (
     <Layout location={location}>
-        <Helmet title={siteTitle} />
+        <SEO />
         <div className="columns">
           <div className="column col-12">
             <div className="columns">

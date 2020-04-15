@@ -14,7 +14,7 @@ export default ({ article }) => (
     <div className='divider'></div>
     <div
       dangerouslySetInnerHTML={{
-        __html: article.description.childMarkdownRemark.html,
+        __html: article.description.description,
       }}
     />
   </div>

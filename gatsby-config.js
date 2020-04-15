@@ -19,6 +19,8 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: 'Outlandnish',
+    description: `Nishanth Samala's home for projects, thoughts, hacks, racing, and other adventure`,
+    siteUrl: 'https://outlandnish.com'
   },
   pathPrefix: '/',
   plugins: [
@@ -30,6 +32,21 @@ module.exports = {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
     },
-    `gatsby-plugin-sass`
+    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'Outlandnish',
+        short_name: 'OTLNDNSH',
+        start_url: '/',
+        icon: `src/images/outlandnish.png`,
+        icon_options: {
+          purpose: 'maskable'
+        },
+        background_color: '#ffffff',
+        theme_color: `#10893E`,
+        display: 'browser'
+      }
+    }
   ],
 }

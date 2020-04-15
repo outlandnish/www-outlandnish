@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import SEO from '../components/SEO'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
@@ -16,7 +16,13 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
-          <Helmet title={`${post.title} | ${siteTitle}`} />
+          <SEO
+            title = {`${post.title} | ${siteTitle}`}
+            description = {post.description.description}
+            image = {post.heroImage}
+            publishDate = {post.publishDate}
+            modifiedDate = {post.updatedAt}
+          />
           <div className={heroStyles.hero}>
             <Img
               className={heroStyles.heroImage}
@@ -28,7 +34,7 @@ class BlogPostTemplate extends React.Component {
             <div className="columns">
               <div className="column col-8 col-sm-12 col-mx-auto">
                 <h1 className={blogPostStyles.postHeader}>{post.title}</h1>
-                <small className="text-gray">{post.publishDate} • {timeToRead(post)}</small>
+                <small className="text-gray">{post.published} • {timeToRead(post)}</small>
                 <div className={`divider ${blogPostStyles.postStart}`}></div>
                 <div id={blogPostStyles.postContent}
                   dangerouslySetInnerHTML={{
@@ -55,11 +61,19 @@ export const pageQuery = graphql`
     }
     contentfulBlogPost(slug: { eq: $slug }) {
       title
-      publishDate(formatString: "MMMM Do, YYYY")
+      publishDate
+      updatedAt
+      published: publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
         fluid(maxWidth: 1180) {
           ...GatsbyContentfulFluid
         }
+        file {
+          url
+        }
+      }
+      description {
+        description
       }
       body {
         childMarkdownRemark {
