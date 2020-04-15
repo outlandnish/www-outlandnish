@@ -22,6 +22,7 @@ class BlogPostTemplate extends React.Component {
             image = {`https:${post.heroImage.file.url}`}
             publishDate = {post.publishDate}
             modifiedDate = {post.updatedAt}
+            tags = {post.tags}
           />
           <div className={heroStyles.hero}>
             <Img
@@ -80,6 +81,7 @@ export const pageQuery = graphql`
           html
         }
       }
+      tags
     }
   }
 `
