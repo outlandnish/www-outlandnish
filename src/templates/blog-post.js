@@ -19,7 +19,7 @@ class BlogPostTemplate extends React.Component {
           <SEO
             title = {`${post.title} | ${siteTitle}`}
             description = {post.description.description}
-            image = {post.heroImage}
+            image = {`https:${post.heroImage.file.url}`}
             publishDate = {post.publishDate}
             modifiedDate = {post.updatedAt}
           />

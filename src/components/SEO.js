@@ -4,10 +4,9 @@ import { Helmet } from "react-helmet"
 import { useLocation } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Logo from '../images/outlandnish.png'
-
 const SEO = ({ title, description, image, article, section, slug, publishDate, modifiedDate }) => {
   const { pathname } = useLocation()
+  console.log(pathname)
   const { site } = useStaticQuery(query)
   const {
     defaultTitle,
@@ -18,7 +17,7 @@ const SEO = ({ title, description, image, article, section, slug, publishDate, m
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: `${siteUrl}${image || Logo}`,
+    image: image || `${siteUrl}"/outlandnish.png"`,
     url: `${siteUrl}${pathname}`,
     profile: { first_name: 'Nishanth', last_name: 'Samala', username: 'outlandnish', gender: 'male' },
     article: article,
@@ -32,7 +31,7 @@ const SEO = ({ title, description, image, article, section, slug, publishDate, m
       "@type": "NewsArticle",
       mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": `${siteUrl}/${section}/${slug}`
+        "@id": `${siteUrl}${pathname}`
       },
       headline: seo.title,
       image: [seo.image],
@@ -47,7 +46,7 @@ const SEO = ({ title, description, image, article, section, slug, publishDate, m
         name: "Outlandnish",
         logo: {
           "@type": "ImageObject",
-          url: Logo
+          url: seo.image
         },
       },
       description: seo.description
@@ -57,7 +56,7 @@ const SEO = ({ title, description, image, article, section, slug, publishDate, m
       "@context": "https://schema.org",
       "@type": "Organization",
       "url": siteUrl,
-      "logo": Logo
+      "logo": seo.image
     }
 
   return (
@@ -73,13 +72,13 @@ const SEO = ({ title, description, image, article, section, slug, publishDate, m
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:creator" content="@outlandnish" />
-      { seo.image && <meta name="twitter:image" content={`https:${seo.image}`} /> }
+      { seo.image && <meta name="twitter:image" content={`${seo.image}`} /> }
       <meta name="twitter:image:alt" content={seo.title} />
 
       {/* Open Graph */}
       <meta property="og:title" content={seo.title} />
       <meta property="og:type" content={seo.type} />
-      <meta property="og:url" content={`${siteUrl}/${section}/${slug}`} />
+      <meta property="og:url" content={`${siteUrl}${pathname}`} />
       { seo.image && <meta property="og:image" content={seo.image} /> }
       <meta property="og:description" content={seo.description} />
       <meta property="og:site_name" content={seo.title} />
