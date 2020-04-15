@@ -17,7 +17,7 @@ class BlogPostTemplate extends React.Component {
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
           <SEO
-            title = {`${post.title} | ${siteTitle}`}
+            title = { post.title }
             description = {post.description.description}
             image = {`https:${post.heroImage.file.url}`}
             publishDate = {post.publishDate}
