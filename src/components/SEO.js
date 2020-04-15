@@ -12,6 +12,7 @@ const SEO = ({ title, description, image, article, section, slug, publishDate, m
     defaultTitle,
     defaultDescription,
     siteUrl,
+    slogan
   } = site.siteMetadata
 
   const seo = {
@@ -48,16 +49,17 @@ const SEO = ({ title, description, image, article, section, slug, publishDate, m
           "@type": "ImageObject",
           url: seo.image
         },
-        slogan: "Run before you can walk"
+        slogan: slogan
       },
       description: seo.description
     }
   else
     structuredData = {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "Brand",
       "url": siteUrl,
-      "logo": seo.image
+      "logo": seo.image,
+      "slogan": slogan
     }
 
   return (
@@ -124,6 +126,7 @@ const query = graphql`
   query SEO {
     site {
       siteMetadata {
+        slogan
         defaultTitle: title
         defaultDescription: description
         siteUrl

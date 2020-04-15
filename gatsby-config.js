@@ -20,6 +20,7 @@ module.exports = {
   siteMetadata: {
     title: 'Outlandnish',
     description: `Nishanth Samala's home for projects, thoughts, hacks, racing, and other adventure`,
+    slogan: "Run before you can walk",
     siteUrl: 'https://outlandnish.com'
   },
   pathPrefix: '/',
