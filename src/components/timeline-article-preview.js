@@ -7,7 +7,7 @@ import styles from './timeline-article-preview.module.css'
 export default ({ post }) => (
   <div className="tile">
     <div className="tile-content columns">
-      <div className="column col-2 col-sm-6">
+      <div className="column col-3 col-sm-12">
       <Link to={`/blog/${post.slug}`}><Img fluid={post.heroImage.fluid} fadeIn={true} /></Link>
       </div>
       <div className="column col-6 col-sm-12">
