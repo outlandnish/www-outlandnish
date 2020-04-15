@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet"
 import { useLocation } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
 
-const SEO = ({ title, description, image, article, section, slug, publishDate, modifiedDate, tags }) => {
+const SEO = ({ title, description, image, article, publishDate, modifiedDate, tags }) => {
   const { pathname } = useLocation()
   console.log(pathname)
   const { site } = useStaticQuery(query)
@@ -28,6 +28,8 @@ const SEO = ({ title, description, image, article, section, slug, publishDate, m
     article: article,
     type: article ? 'article' : 'website'
   }
+
+  let section = pathname.indexOf('/hacks/') ? 'Hacks' : pathname.indexOf('/blog/') ? 'Blog' : '';
 
   let structuredData = null
   if (article)
@@ -69,10 +71,13 @@ const SEO = ({ title, description, image, article, section, slug, publishDate, m
 
   return (
     <Helmet title={seo.title}>
+      <meta name="viewport"	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"	/>
+      <meta name="description" content={seo.description} />
+      <meta name="keywords" content={tags.join(',')} />
+
       {/* Schema.org */}
       <meta itemprop="name" content={author} />
       <meta itemprop="description" content={seo.description} />
-      <meta itemprop="keywords" content={tags.join(',')} />
       { seo.image && <meta itemprop="image" content={seo.image} /> }
 
       {/* Twitter Card */}

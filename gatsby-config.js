@@ -49,6 +49,24 @@ module.exports = {
         theme_color: `#10893E`,
         display: 'browser'
       }
-    }
+    },
+    `gatsby-plugin-advanced-sitemap`,
+    {
+			resolve: `gatsby-plugin-netlify`,
+			options: {
+				allPageHeaders: [
+					'X-Frame-Options: SAMEORIGIN',
+					'X-Content-Type-Options: nosniff',
+					'Referrer-Policy: strict-origin-when-cross-origin',
+					'Feature-Policy: none'
+				]
+			}
+		},
+		{
+			resolve: `gatsby-plugin-robots-txt`,
+			options: {
+				policy: [{ userAgent: '*', disallow: ['/blog', '/hacks'] }],
+			}
+		}
   ],
 }

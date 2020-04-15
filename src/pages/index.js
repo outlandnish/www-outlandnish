@@ -13,16 +13,16 @@ export default ({ data, location }) => {
 
   return (
     <Layout location={location}>
-        <SEO />
+        <SEO title="OTLNDNSH" />
         <div className="columns">
           <div className="column col-12">
             <div className="columns">
               <div className="column col-1 col-sm-7 col-md-3 col-mx-auto">
-                <Img fluid={me} fadeIn={true} alt="Nishanth" className="s-circle" />
+                <Img fluid={me} fadeIn={true} alt="Nishanth" className={`${styles.profilePic} s-circle`} />
               </div>
               <div className="column col-mx-auto">
-                <h2 className={styles.headerTitle}>👋🏽 Hey, it's Nishanth.</h2>
-                <h4>I'm an entrepreneur, maker, and mobility nerd fascinated by the way people move around.</h4>
+                <h1 className={styles.headerTitle}>👋🏽 Hey, it's Nishanth.</h1>
+                <h2 className={styles.headerDescription}>I'm an entrepreneur, maker, and mobility nerd fascinated by the way people move around.</h2>
               </div>
             </div>
           </div>
@@ -90,8 +90,8 @@ export const pageQuery = graphql`
       name
       image: image {
         fluid(
-          maxWidth: 480
-          maxHeight: 480
+          maxWidth: 256
+          maxHeight: 256
           resizingBehavior: PAD
         ) {
           ...GatsbyContentfulFluid
