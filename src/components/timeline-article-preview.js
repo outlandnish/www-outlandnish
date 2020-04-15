@@ -13,6 +13,7 @@ export default ({ post }) => (
       <div className="column col-6 col-sm-12">
         <h5 className={`tile-title ${styles.timelinePreviewTitle}`}><Link to={`/blog/${post.slug}`}>{post.title}</Link></h5>
         <small className="small text-gray">{post.published} <span class="separator">• { timeToRead(post) }</span></small>
+        <p>{post.description.description}</p>
       </div>
     </div>
   </div>
