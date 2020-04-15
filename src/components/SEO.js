@@ -12,7 +12,8 @@ const SEO = ({ title, description, image, article, section, slug, publishDate, m
     defaultTitle,
     defaultDescription,
     siteUrl,
-    slogan
+    slogan,
+    author
   } = site.siteMetadata
 
   const seo = {
@@ -40,11 +41,11 @@ const SEO = ({ title, description, image, article, section, slug, publishDate, m
       dateModified: modifiedDate,
       author: {
         "@type": "Person",
-        name: "Nishanth Samala"
+        name: author
       },
       publisher: {
         "@type": "Brand",
-        name: "Outlandnish",
+        name: defaultTitle,
         logo: {
           "@type": "ImageObject",
           url: seo.image
@@ -57,15 +58,16 @@ const SEO = ({ title, description, image, article, section, slug, publishDate, m
     structuredData = {
       "@context": "https://schema.org",
       "@type": "Brand",
-      "url": siteUrl,
-      "logo": seo.image,
-      "slogan": slogan
+      name: defaultTitle,
+      url: siteUrl,
+      logo: seo.image,
+      slogan: slogan
     }
 
   return (
     <Helmet title={seo.title}>
       {/* Schema.org */}
-      <meta itemprop="name" content="Nishanth Samala" />
+      <meta itemprop="name" content={author} />
       <meta itemprop="description" content={seo.description} />
       { seo.image && <meta itemprop="image" content={seo.image} /> }
 
@@ -90,7 +92,7 @@ const SEO = ({ title, description, image, article, section, slug, publishDate, m
       { seo.article && <meta property="article:section" content={section} /> }
       { seo.article && <meta property="article:published_time" content={publishDate} /> }
       { seo.article && <meta property="article:modified_time" content={modifiedDate} /> }
-      { seo.article && <meta property="article:author" content="Nishanth Samala" /> }
+      { seo.article && <meta property="article:author" content={author} /> }
 
       {/* Open Graph Profile */}
       { seo.article && <meta property="profile:first_name" content={seo.profile.first_name} /> }
@@ -130,6 +132,7 @@ const query = graphql`
         defaultTitle: title
         defaultDescription: description
         siteUrl
+        author
       }
     }
   }
