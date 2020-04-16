@@ -23,6 +23,7 @@ const SEO = ({ title, description, image, article, publishDate, modifiedDate, ta
     title: `${title} | ${defaultTitle}` || defaultTitle,
     description: description || defaultDescription,
     image: image || `${siteUrl}/outlandnish.png`,
+    imageWide: image || `${siteUrl}/outlandnish-wide.png`,
     url: `${siteUrl}${pathname}`,
     profile: { first_name: 'Nishanth', last_name: 'Samala', username: 'outlandnish', gender: 'male' },
     article: article,
@@ -88,14 +89,14 @@ const SEO = ({ title, description, image, article, publishDate, modifiedDate, ta
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:creator" content="@outlandnish" />
-      { seo.image && <meta name="twitter:image" content={`${seo.image}`} /> }
+      { seo.imageWide && <meta name="twitter:image" content={`${seo.imageWide}`} /> }
       <meta name="twitter:image:alt" content={seo.title} />
 
       {/* Open Graph */}
       <meta property="og:title" content={seo.title} />
       <meta property="og:type" content={seo.type} />
       <meta property="og:url" content={`${siteUrl}${pathname}`} />
-      { seo.image && <meta property="og:image" content={seo.image} /> }
+      { seo.imageWide && <meta property="og:image" content={seo.imageWide} /> }
       <meta property="og:description" content={seo.description} />
       <meta property="og:site_name" content={seo.title} />
 
@@ -123,6 +124,7 @@ SEO.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
+  imageWide: PropTypes.string,
   article: PropTypes.bool,
   type: PropTypes.string,
   profile: PropTypes.object
@@ -131,6 +133,7 @@ SEO.defaultProps = {
   title: null,
   description: null,
   image: null,
+  imageWide: null,
   article: false,
   type: null,
   profile: null
