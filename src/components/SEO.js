@@ -101,16 +101,16 @@ const SEO = ({ title, description, image, article, publishDate, modifiedDate, ta
       <meta property="og:site_name" content={defaultTitle} />
 
       {/* Open Graph Article */}
-      { seo.article && <meta property="article:section" content={section} /> }
-      { seo.article && <meta property="article:published_time" content={publishDate} /> }
-      { seo.article && <meta property="article:modified_time" content={modifiedDate} /> }
-      { seo.article && <meta property="article:author" content={author} /> }
+      { seo.article && <meta property="og:article:section" content={section} /> }
+      { seo.article && <meta property="og:article:published_time" content={publishDate} /> }
+      { seo.article && <meta property="og:article:modified_time" content={modifiedDate} /> }
+      { seo.article && <meta property="og:article:author" content={author} /> }
 
       {/* Open Graph Profile */}
-      { seo.article && <meta property="profile:first_name" content={seo.profile.first_name} /> }
-      { seo.article && <meta property="profile:last_name" content={seo.profile.last_name} /> }
-      { seo.article && <meta property="profile:username" content={seo.profile.username} /> }
-      { seo.article && <meta property="profile:gender" content={seo.profile.gender} /> }
+      { seo.article && <meta property="og:profile:first_name" content={seo.profile.first_name} /> }
+      { seo.article && <meta property="og:profile:last_name" content={seo.profile.last_name} /> }
+      { seo.article && <meta property="og:profile:username" content={seo.profile.username} /> }
+      { seo.article && <meta property="og:profile:gender" content={seo.profile.gender} /> }
 
       {/* Structured Data */}
       <script type="application/ld+json">
