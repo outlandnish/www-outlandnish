@@ -11,18 +11,18 @@ import timeToRead from '../utils/time-to-read'
 class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulBlogPost')
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
           <SEO
-            title = { post.title }
+            title = {post.title}
             description = {post.description.description}
             image = {`https:${post.heroImage.file.url}`}
             publishDate = {post.publishDate}
             modifiedDate = {post.updatedAt}
             tags = {post.tags}
+            article = {true}
           />
           <div className={heroStyles.hero}>
             <Img

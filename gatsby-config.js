@@ -38,7 +38,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Outlandnish',
+        name: 'OTLNDNSH',
         short_name: 'OTLNDNSH',
         start_url: '/',
         icon: `src/images/outlandnish.png`,
