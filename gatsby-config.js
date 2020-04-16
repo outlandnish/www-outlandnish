@@ -18,7 +18,7 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'OTLNDNSH',
+    title: 'OUTLNDNSH',
     description: `Nishanth Samala's home for projects, thoughts, hacks, racing, and other adventure`,
     slogan: "Run before you can walk",
     author: "Nishanth Samala",
@@ -38,8 +38,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'OTLNDNSH',
-        short_name: 'OTLNDNSH',
+        name: 'OUTLNDNSH',
+        short_name: 'OUTLNDNSH',
         start_url: '/',
         icon: `src/images/outlandnish.png`,
         icon_options: {
