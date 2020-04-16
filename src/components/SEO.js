@@ -43,7 +43,7 @@ const SEO = ({ title, description, image, article, publishDate, modifiedDate, ta
       },
       headline: seo.title,
       image: [seo.image],
-      datePublished: new Date(publishDate).toISOString(),
+      datePublished: publishDate,
       dateModified: modifiedDate,
       author: {
         "@type": "Person",
