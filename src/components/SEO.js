@@ -43,7 +43,7 @@ const SEO = ({ title, description, image, article, publishDate, modifiedDate, ta
       },
       headline: seo.title,
       image: [seo.image],
-      datePublished: publishDate,
+      datePublished: new Date(publishDate).toISOString(),
       dateModified: modifiedDate,
       author: {
         "@type": "Person",
@@ -85,7 +85,7 @@ const SEO = ({ title, description, image, article, publishDate, modifiedDate, ta
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@outlandnish" />
+      <meta name="twitter:site" content="OUTLNDNSH" />
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:creator" content="@outlandnish" />
@@ -93,12 +93,12 @@ const SEO = ({ title, description, image, article, publishDate, modifiedDate, ta
       <meta name="twitter:image:alt" content={seo.title} />
 
       {/* Open Graph */}
-      <meta property="og:title" content={seo.title} />
+      <meta property="og:title" content={title} />
       <meta property="og:type" content={seo.type} />
       <meta property="og:url" content={`${siteUrl}${pathname}`} />
       { seo.imageWide && <meta property="og:image" content={seo.imageWide} /> }
       <meta property="og:description" content={seo.description} />
-      <meta property="og:site_name" content={seo.title} />
+      <meta property="og:site_name" content={defaultTitle} />
 
       {/* Open Graph Article */}
       { seo.article && <meta property="article:section" content={section} /> }
