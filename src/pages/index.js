@@ -54,14 +54,16 @@ export default ({ data, location }) => {
   )
 }
 
+const now = new Date().toISOString()
+
 export const pageQuery = graphql`
-  query HomeQuery {
+  query HomeQuery($now: Date) {
     site {
       siteMetadata {
         title
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, limit: 3) {
+    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, limit: 3, filter: { publishDate: { lte: $now} }) {
       edges {
         node {
           title

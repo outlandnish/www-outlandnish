@@ -47,14 +47,16 @@ export default ({ data, location }) => {
   )
 }
 
+const now = new Date().toISOString()
+
 export const pageQuery = graphql`
-  query BlogPostsQuery {
+  query BlogPostsQuery($now: Date) {
     site {
       siteMetadata {
         title
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, filter: {tags: {nin: "hack"}}) {
+    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, filter: {tags: {nin: "hack"}, publishDate: { lte: $now }}) {
       edges {
         node {
           title

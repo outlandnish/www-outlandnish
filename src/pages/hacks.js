@@ -48,13 +48,13 @@ export default ({ data, location }) => {
 }
 
 export const pageQuery = graphql`
-  query HacksQuery {
+  query HacksQuery($now: Date) {
     site {
       siteMetadata {
         title
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, filter: {tags: {in: "hack"}}) {
+    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, filter: {tags: {in: "hack"}, publishDate: { lte: $now }}) {
       edges {
         node {
           title
