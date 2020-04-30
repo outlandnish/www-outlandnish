@@ -54,16 +54,8 @@ module.exports = {
       options: {
         timeToRead: wordCount => wordCount / 42,
         plugins: [
-          `gatsby-remark-responsive-iframe`,
-          `gatsby-remark-vscode`,
-          {
-            resolve: `gatsby-remark-embedder`,
-            options: {
-              youtube: {
-                height: 500
-              }
-            }
-          },
+          `gatsby-remark-vscode`,          
+          `@raae/gatsby-remark-oembed`,
           {
             resolve: `gatsby-remark-images-contentful`,
             options: {
@@ -72,6 +64,7 @@ module.exports = {
               sizeByPixelDensity: true,
             }
           },
+          `gatsby-remark-responsive-iframe`
         ]
       }
     },
