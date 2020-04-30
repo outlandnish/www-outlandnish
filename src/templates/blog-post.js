@@ -6,11 +6,12 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import heroStyles from '../components/hero.module.css'
 import blogPostStyles from './blog-post.module.css'
-import timeToRead from '../utils/time-to-read'
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulBlogPost')
+    let html = post.body.childMarkdownRemark.html
+    html = html.replace(/<table>/g, `<table class="table table-striped table-hover">`)
 
     return (
       <Layout location={this.props.location}>
@@ -35,11 +36,11 @@ class BlogPostTemplate extends React.Component {
             <div className="columns">
               <div className="column col-8 col-sm-12 col-md-12 col-mx-auto">
                 <h1 className={blogPostStyles.postHeader}>{post.title}</h1>
-                <small className="text-gray">{post.published} • {timeToRead(post)}</small>
+                <small className="text-gray">{post.published} • {post.body.childMarkdownRemark.timeToRead} min read</small>
                 <div className={`divider ${blogPostStyles.postStart}`}></div>
                 <div id={blogPostStyles.postContent}
                   dangerouslySetInnerHTML={{
-                    __html: post.body.childMarkdownRemark.html,
+                    __html: html,
                   }}
                 />
               </div>
@@ -79,6 +80,7 @@ export const pageQuery = graphql`
       body {
         childMarkdownRemark {
           html
+          timeToRead
         }
       }
       tags

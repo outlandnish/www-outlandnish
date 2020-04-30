@@ -25,7 +25,6 @@ module.exports = {
   },
   pathPrefix: '/',
   plugins: [
-    'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
@@ -47,6 +46,33 @@ module.exports = {
         background_color: '#ffffff',
         theme_color: `#10893E`,
         display: 'browser'
+      }
+    },
+    `gatsby-plugin-catch-links`,
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        timeToRead: wordCount => wordCount / 42,
+        plugins: [
+          `gatsby-remark-responsive-iframe`,
+          `gatsby-remark-vscode`,
+          {
+            resolve: `gatsby-remark-embedder`,
+            options: {
+              youtube: {
+                height: 500
+              }
+            }
+          },
+          {
+            resolve: `gatsby-remark-images-contentful`,
+            options: {
+              showCaptions: true,
+              markdownCaptions: true,
+              sizeByPixelDensity: true,
+            }
+          },
+        ]
       }
     },
     `gatsby-plugin-advanced-sitemap`,

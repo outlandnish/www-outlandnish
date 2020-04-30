@@ -68,7 +68,7 @@ export const pageQuery = graphql`
           }
           body {
             childMarkdownRemark {
-              html
+              timeToRead
             }
           }
           description {
