@@ -58,3 +58,12 @@ code {
   color: unset;
   line-height: unset;
 }
+
+.footnotes ol {
+  list-style: decimal;
+}
+
+.footnotes li p {
+  margin: 0;
+  font-size: smaller;
+}
