@@ -6,6 +6,7 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import heroStyles from '../components/hero.module.css'
 import blogPostStyles from './blog-post.module.css'
+import katex from 'katex/dist/katex.min.css'
 
 class BlogPostTemplate extends React.Component {
   render() {

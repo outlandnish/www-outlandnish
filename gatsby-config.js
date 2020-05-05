@@ -65,7 +65,8 @@ module.exports = {
               sizeByPixelDensity: true,
             }
           },
-          `gatsby-remark-responsive-iframe`
+          `gatsby-remark-responsive-iframe`,
+          `gatsby-remark-katex`
         ]
       }
     },
