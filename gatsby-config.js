@@ -55,12 +55,7 @@ module.exports = {
         timeToRead: wordCount => wordCount / 42,
         plugins: [
           `gatsby-remark-vscode`,          
-          {
-            resolve: `@raae/gatsby-remark-oembed`,
-            options: {
-              usePrefix: ['oembed', 'video']
-            }
-          },
+          `@raae/gatsby-remark-oembed`,
           {
             resolve: `gatsby-remark-images-contentful`,
             options: {
