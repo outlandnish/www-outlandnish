@@ -55,7 +55,14 @@ module.exports = {
         timeToRead: wordCount => wordCount / 42,
         plugins: [
           `gatsby-remark-vscode`,          
-          `@raae/gatsby-remark-oembed`,
+          {
+            resolve: `@raae/gatsby-remark-oembed`,
+            options: {
+              providers: {
+                exclude: ['Twitter', 'Instagram']
+              }
+            }
+          },
           {
             resolve: `gatsby-remark-images-contentful`,
             options: {
