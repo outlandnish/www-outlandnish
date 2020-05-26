@@ -18,8 +18,8 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: 'OUTLNDNSH',
-    description: `Nishanth Samala's home for projects, thoughts, hacks, racing, and other adventure`,
-    slogan: "Run before you can walk",
+    description: `Hacks, racing, and other thoughts by Nish`,
+    slogan: "Leap before you look",
     author: "Nishanth Samala",
     siteUrl: 'https://outlandnish.com'
   },
