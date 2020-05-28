@@ -1,53 +1,22 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import SEO from '../components/SEO'
-import Layout from '../components/layout'
 import _ from 'lodash'
-import { FaCalendarAlt } from 'react-icons/fa'
-import TimelineArticlePreview from '../components/timeline-article-preview'
+
+import PostPage from '../components/post-page'
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+const now = new Date().toISOString()
 
 export default ({ data, location }) => {
-  const siteTitle = get(data, 'site.siteMetadata.title')
   const posts = get(data, 'allContentfulBlogPost.edges').map(p => p.node)
-
-  const groupedPosts = _.keyBy(posts, post => {
+  const groupedPosts = _.groupBy(posts, post => {
     let date = new Date(post.publishDate)
     return `${months[date.getMonth()]} ${date.getFullYear()}`
   })
 
-  return (
-    <Layout location={location}>
-      <div style={{ background: '#fff' }}>
-      <SEO title="Blog" />
-        <div className="wrapper">
-          <h2>Previous posts</h2>
-          <div className="timeline">
-            {
-              Object.keys(groupedPosts).map(group => (
-                <div className="timeline-item" id={group} key={group}>
-                  <div className="timeline-left">
-                    <Link to={`/blog#${group}`} className="timeline-icon icon-lg"><FaCalendarAlt /></Link>
-                  </div>
-                  <div className="timeline-content">
-                    <h5 className="text-dark">{group}</h5>
-                    {
-                      typeof(groupedPosts[group]) === 'array' ? groupedPosts.map(post => (<TimelineArticlePreview post={post} key={post.slug} />)) : <TimelineArticlePreview post={groupedPosts[group]} />
-                    }
-                  </div>
-                </div>
-              ))
-            }
-          </div>
-        </div>
-      </div>
-    </Layout>
-  )
+  return <PostPage title="Blog" subtitle="Previous Posts" posts={groupedPosts} location={location} />
 }
-
-const now = new Date().toISOString()
 
 export const pageQuery = graphql`
   query BlogPostsQuery($now: Date) {

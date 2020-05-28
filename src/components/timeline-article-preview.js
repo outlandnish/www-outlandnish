@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import styles from './timeline-article-preview.module.css'
 
 export default ({ post }) => (
-  <div className="tile">
+  <div className={`tile ${styles.monthGroup}`}>
     <div className="tile-content columns">
       <div className="column col-3 col-sm-12">
       <Link to={`/blog/${post.slug}`}><Img fluid={post.heroImage.fluid} fadeIn={true} /></Link>
