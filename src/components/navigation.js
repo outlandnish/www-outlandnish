@@ -11,6 +11,7 @@ export default () => (
     <section className="navbar-section">
       <Link to="/blog" className="btn btn-link">Blog</Link>
       <Link to="/hacks" className="btn btn-link">Hacks</Link>
+      <a href="https://outlandnish.racing" target="_blank" className="btn btn-link">Racing</a>
       <a href="https://drive.google.com/file/d/1t6kU_XV0DH66gy9zf1DxUPcvCg4-VfHU/view?usp=sharing" target="_blank" className="btn btn-link">Resume</a>
     </section>
   </header>
