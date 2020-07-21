@@ -15,13 +15,23 @@ if (!spaceId || !accessToken) {
   )
 }
 
+let siteUrl = `https://outlandnish.com`
+let email = `hey@outlandnish.com`
+
 module.exports = {
   siteMetadata: {
     title: 'OUTLNDNSH',
     description: `Hacks, racing, adventure, and other thoughts by Nishanth Samala`,
     slogan: "Leap before you look",
     author: "Nishanth Samala",
-    siteUrl: 'https://outlandnish.com'
+    siteUrl: siteUrl,
+    email: email,
+    links: {
+      github: `https://github.com/outlandnish`,
+      instagram: `https://instagram.com/outlandnish`,
+      spotify: `https://open.spotify.com/user/nishanthsamala?si=hdglQJ9LQlKRSQkxANMrhg`,
+      rss: `feed.xml`
+    }
   },
   pathPrefix: '/',
   plugins: [
@@ -78,69 +88,61 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: `gatsby-plugin-feed-generator`,
       options: {
-        query: `
+        rss: true,
+        json: true,
+        siteQuery: `
           {
             site {
               siteMetadata {
                 title
                 description
-                author
                 siteUrl
-                site_url: siteUrl
+                author
+                managingEditor: email
               }
             }
           }
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allContentfulBlogPost }}) => {
+            name: 'feed',
+            query: `
+              {
+                allContentfulBlogPost(sort: { order: DESC, fields: [publishDate] }) {
+                  edges {
+                    node {
+                      title
+                      description {
+                        description
+                      }
+                      slug
+                      tags
+                      body {
+                        childMarkdownRemark {
+                          html
+                        }
+                      }
+                      publishDate
+                    }
+                  }
+                }
+              }
+            `,
+            normalize: ({ query: { site, allContentfulBlogPost }}) => {
               return allContentfulBlogPost.edges.map(edge => {
                 return {
                   title: edge.node.title,
                   description: edge.node.description.description,
                   date: edge.node.publishDate,
                   url: `${site.siteMetadata.siteUrl}/blog/${edge.node.slug}`,
-                  author: site.author,
+                  author: site.siteMetadata.author,
                   categories: edge.node.tags,
-                  enclosure: {
-                    url: edge.node.heroImage.file.url
-                  },
-                  custom_elements: [{ "content:encoded": edge.node.body.childMarkdownRemark.html }],
+                  html: edge.node.body.childMarkdownRemark.html,
                 }
               })
-            },
-            query: `
-              {
-                allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-                  edges {
-                    node {
-                      title
-                      slug
-                      publishDate
-                      published: publishDate(formatString: "MMMM Do, YYYY")
-                      description {
-                        description
-                      }
-                      heroImage {
-                        file {
-                          url
-                        }
-                      }
-                      body {
-                        childMarkdownRemark {
-                          html
-                        }
-                      }
-                      tags
-                    }
-                  }
-                }
-              }
-            `,
-            output: '/rss.xml',
-            title: `OUTLNDNSH Blog`
+            }
           }
         ]
       }

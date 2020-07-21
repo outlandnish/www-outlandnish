@@ -10,6 +10,7 @@ import styles from './index.module.css'
 export default ({ data, location }) => {
   const posts = get(data, 'allContentfulBlogPost.edges')
   const me = get(data, `contentfulPerson.image.fluid`)
+  const email = get(data, 'site.siteMetadata.email')
 
   return (
     <Layout location={location}>
@@ -37,7 +38,7 @@ export default ({ data, location }) => {
           <li>E-skating, <a href="https://www.meetup.com/windycityboarders/" target="_blank" rel="noopener">snowboarding</a>, and mountain biking</li>
           <li>Wandering to intimate concert venues and <a href="https://open.spotify.com/user/nishanthsamala?si=hdglQJ9LQlKRSQkxANMrhg" target="_blank" rel="noopener">discovering music</a></li>
         </ul>
-        <p>Wanna chat or collaborate? Reach out and <a href="mailto:hey@outlandnish.com">say hey.</a></p>
+        <p>Wanna chat or collaborate? Reach out and <a href={`mailto:${email}`}>say hey.</a></p>
       </section>
       <div className="divider"></div>
       <h2>Recent posts</h2>
@@ -61,6 +62,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        email
       }
     }
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, limit: 3, filter: { publishDate: { lte: $now} }) {

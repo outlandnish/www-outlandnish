@@ -118,7 +118,9 @@ const SEO = ({ title, description, image, article, publishDate, modifiedDate, ta
     </Helmet>
   )
 }
+
 export default SEO
+
 SEO.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
@@ -128,6 +130,7 @@ SEO.propTypes = {
   type: PropTypes.string,
   profile: PropTypes.object
 }
+
 SEO.defaultProps = {
   title: null,
   description: null,
@@ -137,6 +140,7 @@ SEO.defaultProps = {
   type: null,
   profile: null
 }
+
 const query = graphql`
   query SEO {
     site {
