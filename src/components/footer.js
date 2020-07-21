@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 import { FaInstagram, FaGithub, FaSpotify, FaRss } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
