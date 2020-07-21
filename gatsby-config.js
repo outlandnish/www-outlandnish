@@ -18,7 +18,7 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: 'OUTLNDNSH',
-    description: `Hacks, racing, and other thoughts by Nish`,
+    description: `Hacks, racing, adventure, and other thoughts by Nishanth Samala`,
     slogan: "Leap before you look",
     author: "Nishanth Samala",
     siteUrl: 'https://outlandnish.com'
@@ -74,6 +74,74 @@ module.exports = {
           },
           `gatsby-remark-responsive-iframe`,
           `gatsby-remark-katex`
+        ]
+      }
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                author
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allContentfulBlogPost }}) => {
+              return allContentfulBlogPost.edges.map(edge => {
+                return {
+                  title: edge.node.title,
+                  description: edge.node.description.description,
+                  date: edge.node.publishDate,
+                  url: `${site.siteMetadata.siteUrl}/blog/${edge.node.slug}`,
+                  author: site.author,
+                  categories: edge.node.tags,
+                  enclosure: {
+                    url: edge.node.heroImage.file.url
+                  },
+                  custom_elements: [{ "content:encoded": edge.node.body.childMarkdownRemark.html }],
+                }
+              })
+            },
+            query: `
+              {
+                allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+                  edges {
+                    node {
+                      title
+                      slug
+                      publishDate
+                      published: publishDate(formatString: "MMMM Do, YYYY")
+                      description {
+                        description
+                      }
+                      heroImage {
+                        file {
+                          url
+                        }
+                      }
+                      body {
+                        childMarkdownRemark {
+                          html
+                        }
+                      }
+                      tags
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: `OUTLNDNSH Blog`
+          }
         ]
       }
     },
