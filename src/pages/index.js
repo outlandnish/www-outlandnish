@@ -38,6 +38,7 @@ export default ({ data, location }) => {
           <li>E-skating, <a href="https://www.meetup.com/windycityboarders/" target="_blank" rel="noopener">snowboarding</a>, and mountain biking</li>
           <li>Wandering to intimate concert venues and <a href="https://open.spotify.com/user/nishanthsamala?si=hdglQJ9LQlKRSQkxANMrhg" target="_blank" rel="noopener">discovering music</a></li>
         </ul>
+        <p>Oh, and <a href="https://www.zebrasunite.com/">Zebras🦓 > Unicorns🦄</a></p>
         <p>Wanna chat or collaborate? Reach out and <a href={`mailto:${email}`}>say hey.</a></p>
       </section>
       <div className="divider"></div>
