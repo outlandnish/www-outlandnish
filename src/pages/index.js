@@ -23,7 +23,7 @@ export default ({ data, location }) => {
               </div>
               <div className="column col-mx-auto">
                 <h1 className={styles.headerTitle}>👋🏽 Hey, it's Nishanth.</h1>
-                <h2 className={styles.headerDescription}>I'm an entrepreneur, maker, and mobility nerd fascinated by the way people move around.</h2>
+                <h2 className={styles.headerDescription}>I'm a maker and mobility nerd fascinated by the way people move around.</h2>
               </div>
             </div>
           </div>
