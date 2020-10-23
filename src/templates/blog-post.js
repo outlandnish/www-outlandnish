@@ -13,7 +13,6 @@ export default ({ data, location }) => {
   const post = get(data, 'contentfulBlogPost')
   let html = post.body.childMarkdownRemark.html
   html = html.replace(/<table>/g, `<table class="table table-striped table-hover">`)
-  console.log(post.tags)
   const [showPost, setShowPost] = useState(post.tags.indexOf('overshare') == -1)
 
   if (!showPost)
