@@ -15,6 +15,7 @@ exports.createPages = ({ graphql, actions }) => {
                 node {
                   title
                   slug
+                  tags
                 }
               }
             }
@@ -22,17 +23,18 @@ exports.createPages = ({ graphql, actions }) => {
           `
       ).then(result => {
         if (result.errors) {
-          console.log(result.errors)
+          console.error(result.errors)
           reject(result.errors)
         }
 
         const posts = result.data.allContentfulBlogPost.edges
-        posts.forEach((post, index) => {
+        posts.forEach(({ node: post }, index) => {
+          const partialPath = post.tags.indexOf('hack') >= 0 ? 'hacks' : post.tags.indexOf('overshare') >= 0 ? 'overshare' : 'blog'
           createPage({
-            path: `/blog/${post.node.slug}/`,
+            path: `/${partialPath}/${post.slug}/`,
             component: blogPost,
             context: {
-              slug: post.node.slug
+              slug: post.slug
             },
           })
         })

@@ -23,20 +23,19 @@ export default ({ data, location }) => {
               </div>
               <div className="column col-mx-auto">
                 <h1 className={styles.headerTitle}>👋🏽 Hey, it's Nishanth.</h1>
-                <h2 className={styles.headerDescription}>I'm a maker and mobility nerd fascinated by the way people move around.</h2>
+                <h2 className={styles.headerDescription}>I'm a maker and mobility nut fascinated by the way people move around.</h2>
               </div>
             </div>
           </div>
         </div>
       <section className={styles.summary}>
-        <h5>Currently I'm working on<a href="https://ridewithamp.com" target="_blank" rel="noopener"> the Amp</a> @ <a href="https://intentfulmotion.com" target="_blank" rel="noopener">Intentful Motion</a>. Otherwise, you'll find me:</h5>
+        <h5>Currently I'm working on<a href="https://ridewithamp.com" target="_blank" rel="noopener"> the Amp</a>  to help keep bicyclists, scooter riders, and other micromobility users safe on city roads.</h5>
         <ul className="summary-list">
-          <li>Bringing <Link to="/hacks">fun project ideas</Link> to life and contributing to <a href="https://github.com/outlandnish" target="_blank" rel="noopener">open source</a></li>
-          <li><a href="https://www.outlandnish.racing" target="_blank" rel="noopener">Time attack competition and drift exhibitions</a></li>
-          <li>Co-hosting the <a href="http://brakefastclub.com" target="_blank" rel="noopener">Brakefast Club</a> podcast</li>
-          <li>Doing any form of <a href="https://instagram.com/outlandnish" target="_blank" rel="noopener">outdoor adventure and travel</a></li>
-          <li>E-skating, <a href="https://www.meetup.com/windycityboarders/" target="_blank" rel="noopener">snowboarding</a>, and mountain biking</li>
-          <li>Wandering to intimate concert venues and <a href="https://open.spotify.com/user/nishanthsamala?si=hdglQJ9LQlKRSQkxANMrhg" target="_blank" rel="noopener">discovering music</a></li>
+          <li>⚡ I'm currently building the <a href="https://docs.ridewithamp.com" target="_blank" rel="noopener">Amp</a> to help keep bicyclists, scooter riders, and other micromobility users safe on city roads</li>
+          <li>📝 I enjoy bringing fun physical and digital ideas to life while <a href="https://github.com/outlandnish" target="_blank" rel="noopener">contributing to open source</a> and <Link to="/hacks">writing about them</Link></li>
+          <li>🚵‍♀️ You'll <a href="https://instagram.com/outlandnish" target="_blank" rel="noopener">find me traveling or venturing outdoors</a> to hike, mountain bike, snowboard, or e-skate</li>
+          <li>🏎 I'm a grassroots racing driver and driving coach. I try my best to make related technology <a href="https://www.outlandnish.racing" target="_blank" rel="noopener">more accessible</a></li>
+          <li>🎶 Wandering to intimate concert venues and <a href="https://open.spotify.com/user/nishanthsamala?si=hdglQJ9LQlKRSQkxANMrhg" target="_blank" rel="noopener">discovering music</a></li>
         </ul>
         <p>Oh, and <a href="https://www.zebrasunite.com/">Zebras🦓 > Unicorns🦄</a></p>
         <p>Wanna chat or collaborate? Reach out and <a href={`mailto:${email}`}>say hey.</a></p>
@@ -66,7 +65,7 @@ export const pageQuery = graphql`
         email
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, limit: 3, filter: { publishDate: { lte: $now} }) {
+    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, limit: 3, filter: { publishDate: { lte: $now}, tags: {nin: "overshare"} }) {
       edges {
         node {
           title

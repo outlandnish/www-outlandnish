@@ -1,31 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import _ from 'lodash'
+import AuthorizeHiddenPost from '../components/authorize-hidden-post'
 
 import PostPage from '../components/post-page'
-
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-const now = new Date()
 
 export default ({ data, location }) => {
+  const [showPage, setShowPage] = useState(false)
+
+  if (!showPage)
+    return <AuthorizeHiddenPost location={location} approve={approved => setShowPage(approved)} />
+
   const posts = get(data, 'allContentfulBlogPost.edges').map(p => p.node)
+
   const groupedPosts = _.groupBy(posts, post => {
     let date = new Date(post.publishDate)
     return `${months[date.getMonth()]} ${date.getFullYear()}`
   })
 
-  return <PostPage title="Blog" subtitle="Previous Posts" posts={groupedPosts} location={location} />
+  return <PostPage title="Overshare" subtitle="Personal Posts" posts={groupedPosts} location={location} />
 }
 
 export const pageQuery = graphql`
-  query BlogPostsQuery {
+  query OvershareQuery {
     site {
       siteMetadata {
         title
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, filter: {tags: {nin: ["hack", "overshare"]}}) {
+    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, filter: {tags: {in: ["overshare"]} }) {
       edges {
         node {
           title

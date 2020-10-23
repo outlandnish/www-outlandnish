@@ -110,7 +110,7 @@ module.exports = {
             name: 'feed',
             query: `
               {
-                allContentfulBlogPost(sort: { order: DESC, fields: [publishDate] }) {
+                allContentfulBlogPost(sort: { order: DESC, fields: [publishDate] }, filter: {tags: {nin: ["overshare"]}}) {
                   edges {
                     node {
                       title
@@ -132,14 +132,16 @@ module.exports = {
             `,
             normalize: ({ query: { site, allContentfulBlogPost }}) => {
               return allContentfulBlogPost.edges.map(edge => {
+                const post = edge.node
+                const partialPath = post.tags.indexOf('hack') >= 0 ? 'hacks' : 'blog'
                 return {
-                  title: edge.node.title,
-                  description: edge.node.description.description,
-                  date: edge.node.publishDate,
-                  url: `${site.siteMetadata.siteUrl}/blog/${edge.node.slug}`,
+                  title: post.title,
+                  description: post.description.description,  
+                  date: post.publishDate,
+                  url: `${site.siteMetadata.siteUrl}/${partialPath}/${post.slug}`,
                   author: site.siteMetadata.author,
-                  categories: edge.node.tags,
-                  html: edge.node.body.childMarkdownRemark.html,
+                  categories: post.tags,
+                  html: post.body.childMarkdownRemark.html,
                 }
               })
             }

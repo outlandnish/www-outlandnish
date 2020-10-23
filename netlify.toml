@@ -1,6 +1,15 @@
 [build]
-  public = "public/"
-  command = "gatsby build"
+  base = '.'
+  command = "gatsby build && cd functions && yarn install"
+  publish = "public/"
+  functions = "functions/"
+
+  
+[dev]
+  functions = 'functions'
+  functionsPort = 5000
+  targetPort = 8000
+  autoLaunch = false
 
 [[plugins]]
   package = "netlify-plugin-gatsby-cache"

@@ -6,7 +6,7 @@ import _ from 'lodash'
 import PostPage from '../components/post-page'
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-const now = new Date().toISOString()
+const now = new Date()
 
 export default ({ data, location }) => {
   const posts = get(data, 'allContentfulBlogPost.edges').map(p => p.node)
@@ -20,13 +20,13 @@ export default ({ data, location }) => {
 }
 
 export const pageQuery = graphql`
-  query HacksQuery($now: Date) {
+  query HacksQuery {
     site {
       siteMetadata {
         title
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, filter: {tags: {in: "hack"}, publishDate: { lte: $now }}) {
+    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, filter: {tags: {in: "hack"} }) {
       edges {
         node {
           title
