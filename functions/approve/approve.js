@@ -6,7 +6,6 @@ exports.handler = async (event, context) => {
   
   try {
     let { password: userPassword } = JSON.parse(event.body)
-    console.log(`approve ${userPassword} against ${password}: ${userPassword === password}`)
 
     if (userPassword === password)
       return { statusCode: 200, body: JSON.stringify({ approved: true })}
