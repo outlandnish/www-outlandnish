@@ -71,3 +71,4 @@ public
 contentful
 # Local Netlify folder
 .netlify
+functions/node_modules

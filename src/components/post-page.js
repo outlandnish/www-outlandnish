@@ -9,7 +9,8 @@ import TimelineArticlePreview from '../components/timeline-article-preview'
 
 import _ from 'lodash'
 
-export default ({ title, subtitle, posts, location }) => (
+export default ({ title, subtitle, posts, location }) => {
+  return (
   <Layout location={location}>
     <div style={{ background: '#fff' }}>
     <SEO title={title} />
@@ -20,13 +21,13 @@ export default ({ title, subtitle, posts, location }) => (
             Object.keys(posts).map(group => (
               <div className="timeline-item" id={group} key={group}>
                 <div className="timeline-left">
-                  <Link to={`/blog#${group}`} className="timeline-icon icon-lg"><FaCalendarAlt /></Link>
+                  <Link to={`${location.pathname}#${group}`} className="timeline-icon icon-lg"><FaCalendarAlt /></Link>
                 </div>
                 <div className="timeline-content">
                   <h5 className="text-dark">{group}</h5>
                   { 
                     posts[group]
-                      .map(post => (<TimelineArticlePreview post={post} key={post.slug} />))
+                      .map(post => (<TimelineArticlePreview partial={location.pathname} post={post} key={post.slug} />))
                   }
                 </div>
               </div>
@@ -36,4 +37,5 @@ export default ({ title, subtitle, posts, location }) => (
       </div>
     </div>
   </Layout>
-)
+  )
+}

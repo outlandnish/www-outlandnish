@@ -25,7 +25,6 @@ export default ({ location, approve }) => {
     }
     catch (err) {
       setLoading(false)
-      approve(true)
       alert(`No luck, that password was incorrect or there's network issues`)
     }
   }

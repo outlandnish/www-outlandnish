@@ -29,9 +29,9 @@ exports.createPages = ({ graphql, actions }) => {
 
         const posts = result.data.allContentfulBlogPost.edges
         posts.forEach(({ node: post }, index) => {
-          const partialPath = post.tags.indexOf('hack') >= 0 ? 'hacks' : post.tags.indexOf('overshare') >= 0 ? 'overshare' : 'blog'
+          const partial = post.tags.indexOf('overshare') >= 0 ? 'overshare' : post.tags.indexOf('hack') >= 0 ? 'hacks' : 'blog'
           createPage({
-            path: `/${partialPath}/${post.slug}/`,
+            path: `/${partial}/${post.slug}/`,
             component: blogPost,
             context: {
               slug: post.slug
