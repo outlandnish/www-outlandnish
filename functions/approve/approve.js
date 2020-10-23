@@ -1,7 +1,7 @@
 const password = process.env.APPROVE_PASSWORD
 
 exports.handler = async (event, context) => {
-  if (!json.body)
+  if (!event.body)
     return { statusCode: 400, body: JSON.stringify({ error: 'requires password in body' }) }
   
   try {
