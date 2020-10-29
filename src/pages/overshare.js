@@ -20,7 +20,7 @@ export default ({ data, location }) => {
     return `${months[date.getMonth()]} ${date.getFullYear()}`
   })
 
-  return <PostPage title="Overshare" subtitle="Personal Posts" posts={groupedPosts} location={location} />
+  return <PostPage title="Overshare" subtitle="Personal Posts" posts={groupedPosts} location={location} indexed={false} />
 }
 
 export const pageQuery = graphql`

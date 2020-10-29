@@ -9,11 +9,12 @@ import TimelineArticlePreview from '../components/timeline-article-preview'
 
 import _ from 'lodash'
 
-export default ({ title, subtitle, posts, location }) => {
+export default ({ title, subtitle, posts, location, indexed = false }) => {
+
   return (
   <Layout location={location}>
     <div style={{ background: '#fff' }}>
-    <SEO title={title} />
+    <SEO title={title} indexed={indexed} />
       <div className="wrapper">
         <h2>{ subtitle }</h2>
         <div className="timeline">

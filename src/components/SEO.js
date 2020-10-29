@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet"
 import { useLocation } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
 
-const SEO = ({ title, description, image, article, publishDate, modifiedDate, tags }) => {
+const SEO = ({ title, description, image, article, publishDate, modifiedDate, tags, indexed }) => {
   const { pathname } = useLocation()
   const { site } = useStaticQuery(query)
   if (!tags)
@@ -76,6 +76,7 @@ const SEO = ({ title, description, image, article, publishDate, modifiedDate, ta
       <meta name="description" content={seo.description} />
       <meta name="keywords" content={tags.join(',')} />
       <link rel="canonical" href={`${siteUrl}${pathname}`} />
+      { indexed && <meta name="robots" content="noindex" /> }
 
       {/* Schema.org */}
       <meta itemprop="name" content={author} />
