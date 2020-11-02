@@ -29,9 +29,8 @@ export default ({ data, location }) => {
           </div>
         </div>
       <section className={styles.summary}>
-        <h5>Currently I'm working on<a href="https://ridewithamp.com" target="_blank" rel="noopener"> the Amp</a>  to help keep bicyclists, scooter riders, and other micromobility users safe on city roads.</h5>
+        <h5>Currently, I'm working on<a href="https://ridewithamp.com" target="_blank" rel="noopener"> the Amp</a>  to help keep bicyclists, scooter riders, and other micromobility users safe on city roads.</h5>
         <ul className="summary-list">
-          <li>⚡ I'm currently building the <a href="https://docs.ridewithamp.com" target="_blank" rel="noopener">Amp</a> to help keep bicyclists, scooter riders, and other micromobility users safe on city roads</li>
           <li>📝 I enjoy bringing fun physical and digital ideas to life while <a href="https://github.com/outlandnish" target="_blank" rel="noopener">contributing to open source</a> and <Link to="/hacks">writing about them</Link></li>
           <li>🚵‍♀️ You'll <a href="https://instagram.com/outlandnish" target="_blank" rel="noopener">find me traveling or venturing outdoors</a> to hike, mountain bike, snowboard, or e-skate</li>
           <li>🏎 I'm a grassroots racing driver and driving coach. I try my best to make related technology <a href="https://www.outlandnish.racing" target="_blank" rel="noopener">more accessible</a></li>
