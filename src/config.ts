@@ -4,7 +4,7 @@
 export const SITE_TITLE = "Outlandnish";
 export const SITE_SHORT_TITLE = "OTLNDSH";
 export const SITE_DESCRIPTION =
-  "Welcome to my blog! I write about modern web development.";
+  "Movement is my jam. From hacking micromobility to travel and personal fitness, this blog chronicles the way I explore it.";
 export const GITHUB_HANDLE = "@outlandnish";
 export const MY_NAME = "Nishanth Samala";
 
