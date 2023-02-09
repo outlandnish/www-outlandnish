@@ -1,11 +1,7 @@
-#
+# Blog
+
+My personal blog built on Astro + Vite.
 
 ## Credit
 
-Thanks to other templates that inspired this theme.
-
-- [Official Astro Blog template](https://github.com/withastro/astro/tree/main/examples/blog)
-
-## License
-
-MIT © [Dinesh Pandiyan](https://github.com/flexdinesh)
+- Based on a theme by [Dinesh Pandiyan](https://github.com/flexdinesh)
