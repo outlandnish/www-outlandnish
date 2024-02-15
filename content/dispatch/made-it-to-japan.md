@@ -2,7 +2,7 @@
 external: false
 draft: false
 title: Made it to Japan!
-date: 2024-01-15
+date: 2024-02-06
 location: Sapporo, Japan
 ---
 
