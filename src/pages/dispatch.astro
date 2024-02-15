@@ -1,0 +1,91 @@
+---
+import { readAll } from "../lib/markdoc/read";
+import { dispatch } from "../lib/markdoc/frontmatter.schema";
+import PageLayout from "../layouts/PageLayout.astro";
+import PageMeta from "../components/PageMeta.astro";
+import { SITE_SHORT_TITLE } from "../config";
+import { groupBy } from '../utils/groupBy'
+
+const hacks = await readAll({
+  directory: "dispatch",
+  frontmatterSchema: dispatch,
+});
+
+const sortedDispatches = hacks
+  .filter((h) => h.frontmatter.draft !== true)
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.date).valueOf() -
+      new Date(a.frontmatter.date).valueOf()
+  );
+
+const groupedByLocation = groupBy(sortedDispatches, (item) => item.frontmatter.location)
+---
+
+<PageLayout>
+  <PageMeta title={`Dispatch | ${SITE_SHORT_TITLE}`} slot="meta" />
+  <section slot="main">
+    {
+      Object
+        .keys(groupedByLocation)
+        .map((location) => {
+          return (<h2>{location}</h2>
+          <ul>
+            {
+              groupedByLocation[location].map((dispatch) => {
+                const formattedDate = new Date(
+                  dispatch.frontmatter.date
+                ).toLocaleDateString("en-us", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                });
+                return (
+                  <li class="grid grid-cols-[1fr] md:grid-cols-[1fr_auto] mb-3 md:gap-2 items-start">
+                    <div class="title">
+                      {dispatch.frontmatter.external ? (
+                        <a
+                          href={dispatch.frontmatter.url}
+                          target="_blank"
+                          class="unset
+                              transition-[background-size] duration-300 
+                              bg-gradient-to-r bg-left-bottom bg-no-repeat
+                              bg-[length:0%_55%] hover:bg-[length:100%_55%] dark:bg-[length:0%_2px] hover:dark:bg-[length:100%_2px]
+                              from-primary-blue to-primary-blue dark:from-primary-blue dark:to-primary-blue
+                            "
+                        >
+                          <span>{dispatch.frontmatter.title}</span>
+                          <span>
+                            <i class="ml-1 mr-1 text-[12px] pb-2 fa-solid fa-up-right-from-square" />
+                          </span>
+                        </a>
+                      ) : (
+                        <a
+                          href={`/dispatch/${dispatch.slug}`}
+                          class="unset
+                              transition-[background-size] duration-300 
+                              bg-gradient-to-r bg-left-bottom bg-no-repeat
+                              bg-[length:0%_55%] hover:bg-[length:100%_55%] dark:bg-[length:0%_2px] hover:dark:bg-[length:100%_2px]
+                              from-primary-blue to-primary-blue dark:from-primary-blue dark:to-primary-blue
+                            "
+                        >
+                          {dispatch.frontmatter.title}
+                        </a>
+                      )}
+                    </div>
+                    <div class="text-text-muted text-sm italic pt-1">
+                      <time datetime={dispatch.frontmatter.date.toISOString()}>
+                        {formattedDate}
+                      </time>
+                    </div>
+                  </li>
+                );
+              })
+            }
+          </ul>
+          )
+        })
+    }
+    
+  </section>
+</PageLayout>

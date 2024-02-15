@@ -3,6 +3,7 @@ title: "Helping Make Onewheels More Serviceable (And Getting Punished For It)"
 description: What happens when skate and hacker cultures intersect and go up against Silicon Valley techbros?
 date: 2023-11-26
 external: false
+draft: true
 ---
 
 ## Background
@@ -61,7 +62,7 @@ I wanted to build a tool to enable some of the advanced funcitonality of the boa
 
 [ ] insert photo of CLI tool for Rewheel
 
-I tested it with my local shop but there was an ask for an even easier way. I decided to re-architect the tool for the web.
+I tested it with my local shop but there was an ask for an even easier way. I decided to re-architect the tool for the web. It became a Vite / React web app that was hosted as a static site on Netlify. As usual with my projects, there are no user analytics / data collection (which ended up being important down the road).
 
 [ ] insert photo of first iteration of Rewheel
 
@@ -83,6 +84,6 @@ Knowing how litigious Future Motion is, it was a matter of time before they star
 
 While I don't agree with that interpretation, I didn't have the resources to fight it. I decided to pull down all of Rewheel to avoid a long, drawn out process of fighting it in court over something I built as a hobby project for free. That hasn't stopped the community though - they had cloned the repository and have since been hosting it themselves. While I'm no longer affiliated with the project, it's been cool to hear that people are still making modifications of their own.
 
-When I travel and go on group rides, it's been amazing to see the impact of Rewheel on their riding. To hear about a hobby project you built for your own curiosity and frustration spoken about in online forums, in person and even made into both an adjective and a verb, it makes me super proud. It's validation that there was (and is) a huge space to improve the experience for Onewheel riders.
+When I travel and go on group rides, it's been amazing to see the impact of Rewheel on their riding. To hear about a hobby project you built for your own curiosity and frustration spoken about in online forums, in person and even made into both an adjective and a verb, it makes me super proud. It's validation that there was (and is) a huge space to improve the experience for Onewheel riders.FF
 
 I've got some ideas for how to take it further, but more on that soon :)
