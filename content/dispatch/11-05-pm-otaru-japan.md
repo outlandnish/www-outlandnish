@@ -6,8 +6,6 @@ date: 2024-02-16
 location: Otaru, Japan
 ---
 
-### 11:05 PM
-
 Almost had the police called on me as I got off the bus in Otaru. I didn't have an IC card to pay for the trip and still hadn't gotten cash 😬😬
 
 
