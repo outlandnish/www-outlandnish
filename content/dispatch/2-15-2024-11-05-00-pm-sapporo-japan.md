@@ -2,8 +2,8 @@
 external: false
 draft: false
 title: null
-date: 2024-02-16
-when: Fri, 16 Feb 2024 08:05:00 +0900
+date: 2024-02-07
+when: Wed, 07 Feb 2024 07:00:00 +0900
 location: Sapporo, Japan
 ---
 

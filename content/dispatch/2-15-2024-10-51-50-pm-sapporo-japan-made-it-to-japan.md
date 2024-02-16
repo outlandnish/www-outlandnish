@@ -2,8 +2,8 @@
 external: false
 draft: false
 title: Made it to Japan!
-date: 2024-02-16
-when: Fri, 16 Feb 2024 07:51:50 +0900
+date: 2024-02-06
+when: Tue, 06 Feb 2024 20:00:00 +0900
 location: Sapporo, Japan
 ---
 ### 10:51 PM
