@@ -1,8 +1,8 @@
 ---
 external: false
 draft: false
-title: 11:05 PM
-date: 2024-02-16
+title: 8:00 AM
+date: 2024-02-07
 location: Sapporo, Japan
 ---
 
