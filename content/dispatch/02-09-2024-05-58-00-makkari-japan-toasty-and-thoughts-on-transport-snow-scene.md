@@ -3,10 +3,10 @@ external: false
 draft: false
 title: Toasty...and thoughts on transport / snow scene
 date: 2024-02-17
-when: Fri, 16 Feb 2024 10:45:23 +0900
+when: Fri, 9 Feb 2024 10:45:23 +0900
 location: Makkari, Japan
 ---
-### 1:45 AM
+### 5:58 AM
 Been awake to the sounds of someone scraping the driveway in Makkari, a rural town between Rusutsu and Niseko. On reflection (in the warmth), there's a lot that parallels Japanese and American small town infrastructure. I wonder why there isn't a higher prevalence of public transportation like other parts of the world. Or is it just my warped perception that it's better elsewhere?
 
 

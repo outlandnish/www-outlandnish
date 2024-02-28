@@ -20,6 +20,19 @@ export const getChronologicalDispatches = (posts: DispatchPost[]) => {
     );
 }
 
+export const groupByYear = (posts: DispatchPost[]) => {
+  const years: Record<number, DispatchPost[]> = {};
+  for (const post of posts) {
+    const year = new Date(post.frontmatter.when).getFullYear();
+    if (years[year]) {
+      years[year].push(post);
+    } else {
+      years[year] = [post];
+    }
+  }
+  return years;
+}
+
 export const combineDispatchesInLocation = (posts: DispatchPost[]) => {
   const dispatches: Record<number, DispatchPost[]> = {};
   let index = 0;
