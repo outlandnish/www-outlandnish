@@ -1,4 +1,8 @@
----
+--- 
+import { readLast } from "../lib/markdoc/read";
+import { dispatch } from "../lib/markdoc/frontmatter.schema";
+
+const { frontmatter: { location } } = await readLast({ directory: 'dispatch', frontmatterSchema: dispatch })
 ---
 
 <div>
@@ -45,7 +49,7 @@
       >
     </li>
     <li>
-      <strong>Exploring the world.</strong> Last spot: Le Mans, France. Up Next: Banff, Canada.
+      <strong>Exploring the world.</strong> Last travel dispatch from <strong>{location}</strong>
     </li>
     <li>
       <strong>Attempting to dance.</strong> Currently learning bachata and salsa.

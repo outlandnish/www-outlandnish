@@ -1,0 +1,84 @@
+---
+import { readAll } from "../lib/markdoc/read";
+import { dispatch } from "../lib/markdoc/frontmatter.schema";
+import PageLayout from "../layouts/PageLayout.astro";
+import PageMeta from "../components/PageMeta.astro";
+import { SITE_SHORT_TITLE } from "../config";
+import {
+  getChronologicalDispatches,
+  combineDispatchesInLocation,
+  groupByYear,
+} from "../utils/groupLocation";
+
+const dispatches = await readAll({
+  directory: "dispatch",
+  frontmatterSchema: dispatch,
+});
+
+const sortedDispatches = getChronologicalDispatches(dispatches);
+const groupedByYear = groupByYear(sortedDispatches);
+---
+
+<PageLayout>
+  <PageMeta title={`Dispatch | ${SITE_SHORT_TITLE}`} slot="meta" />
+  <section slot="main">
+    {
+      Object.keys(groupedByYear).map((year) => {
+        const combined = combineDispatchesInLocation(groupedByYear[year]);
+        return (
+          <div>
+            <h2 class="text-xl font-semibold">{year}</h2>
+            {Object.keys(combined).map((_order, index) => (
+              <div>
+                <h3 class="text-md font-semibold">
+                  {combined[index][0].frontmatter.location}
+                </h3>
+                <ul>
+                  {combined[index].map((dispatch) => {
+                    const date = new Date(dispatch.frontmatter.when);
+                    const formattedDate = date.toLocaleDateString("en-us", {
+                      month: "short",
+                      day: "numeric",
+                    });
+                    const formattedTime = date.toLocaleTimeString("en-us", {
+                      hour: "numeric",
+                      hour12: true,
+                      minute: "numeric",
+                    });
+                    return (
+                      <li class="grid grid-cols-[1fr] md:grid-cols-[1fr_auto] mb-3 md:gap-2 items-start">
+                        <div class="title">
+                          <a
+                            href={`/dispatch/${dispatch.slug}`}
+                            class="unset
+                            transition-[background-size] duration-300 
+                            bg-gradient-to-r bg-left-bottom bg-no-repeat
+                            bg-[length:0%_55%] hover:bg-[length:100%_55%] dark:bg-[length:0%_2px] hover:dark:bg-[length:100%_2px]
+                            from-primary-blue to-primary-blue dark:from-primary-blue dark:to-primary-blue
+                          "
+                          >
+                            <span>
+                              {dispatch.frontmatter.title ??
+                                `(Around ${dispatch.frontmatter.location})`}
+                            </span>
+                          </a>
+                        </div>
+                        <div class="text-text-muted text-sm italic pt-1">
+                          <time
+                            datetime={dispatch.frontmatter.date.toISOString()}
+                          >
+                            {formattedTime}, {formattedDate}
+                          </time>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
+        );
+      })
+    }
+  </section>
+</PageLayout>

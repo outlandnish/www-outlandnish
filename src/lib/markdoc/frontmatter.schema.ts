@@ -41,3 +41,9 @@ export const blog = z.discriminatedUnion("external", [
     }),
   }),
 ]);
+
+export const dispatch = baseSchema.extend({
+  location: z.optional(z.string()),
+  title: z.nullable(z.string()),
+  when: z.string()
+})
